@@ -1,0 +1,45 @@
+<!Doctype Html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Todo_app_AddAtLast_DeleteIntialEntered</title>
+    <style>
+        #MyUl {
+            background-color: aqua;
+            width: max-content;
+            border-radius: 2px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="MyUl"></ul>
+    <input type="text" id='txt' />
+    <button type="button" id="Add_btn" onclick="todo_add()">ADD Value</button>
+    <button type="button" id="Del_btn" onclick="todo_del()">Delete Intial Value</button>
+    <script>
+        function todo_add() {
+            var x = document.getElementById('txt').value;
+            var y = document.createTextNode(x)
+            var node = document.createElement("li");
+            if (x === '') {
+                console.log('Field is empty.. Give Input');
+            }
+            else {
+                node.appendChild(y);
+                var z = document.getElementById('MyUl').appendChild(node)
+                console.log(z);
+            }
+        } todo_add()
+
+        function todo_del() {
+            var my_ul = document.querySelector('#MyUl');
+            var len = my_ul.children.length;
+            for (let i = 0; i < len; i++) {
+                my_ul.removeChild(my_ul.childNodes[i]);
+            }
+        } todo_del()
+    </script>
+</body>
+</html>
